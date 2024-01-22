@@ -1,4 +1,4 @@
-//Problem Link: https://codeforces.com/problemset/problem/1921/B
+// Problem Link: https://codeforces.com/problemset/problem/1921/B
 let input = "";
 process.stdin.on("data", (data) => (input += data));
 process.stdin.on("end", () => {
