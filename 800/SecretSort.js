@@ -1,5 +1,4 @@
-// Problem Link: https://codeforces.com/problemset/problem/1919/A
-
+//Problem Link: https://codeforces.com/problemset/problem/1894/A
 let input = "";
 process.stdin.on("data", (data) => (input += data));
 process.stdin.on("end", () => {
@@ -10,15 +9,12 @@ process.stdin.on("end", () => {
   const t = +lines[0];
   let i = 1;
   while (i < lines.length) {
-    const [a, b] = lines[i++].split(" ").map(Number);
-    solve(a, b);
+    const n = +lines[i++];
+    const plays = lines[i++];
+    solve(plays);
   }
 });
 
-function solve(a, b) {
-  if ((a + b) % 2 === 0) {
-    console.log("Bob");
-  } else {
-    console.log("Alice");
-  }
+function solve(plays) {
+  console.log(plays[plays.length - 1]);
 }

@@ -1,4 +1,4 @@
-// Problem Link: https://codeforces.com/problemset/problem/1914/B
+// Problem Link: https://codeforces.com/problemset/problem/1925/A
 let input = "";
 process.stdin.on("data", (data) => (input += data));
 process.stdin.on("end", () => {
@@ -15,17 +15,14 @@ process.stdin.on("end", () => {
 });
 
 function solve(n, k) {
-  let arr = Array.from({ length: n });
-  let i = 0;
-  while (i < k) {
-    arr[i] = i + 1;
-    i++;
+  let arr = new Array(26).fill(0);
+  for (let i = "a".charCodeAt(0); i <= "z".charCodeAt(0); i++) {
+    arr[i - "a".charCodeAt(0)] = String.fromCharCode(i);
   }
-  let j = 0;
-  while (i < n) {
-    arr[i] = n - j;
-    i++;
-    j++;
+  let str = arr.slice(0, k).join("");
+  let ans = "";
+  for (let i = 0; i < n; i++) {
+    ans += str;
   }
-  console.log(arr.join(" "));
+  console.log(ans);
 }
