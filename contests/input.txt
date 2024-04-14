@@ -1,11 +1,11 @@
 5
 4
-abaa
-4
-abba
-13
-slavicgslavic
+1 1 2 3
 8
-hshahaha
-20
-stormflamestornflame
+7 4 1 2 8 8 5 5
+8
+7 1 4 5 3 4 2 6
+3
+1 2 3
+1
+1
