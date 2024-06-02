@@ -15,7 +15,6 @@ process.stdin.on("end", () => {
       let [u, v] = lines[i++].split(" ").map(Number);
       edges.push([u, v]);
     }
-    console.log(n, edges);
     solve(n, edges);
   }
 });
@@ -35,11 +34,28 @@ function solve(n, edges) {
       map.get(v).push(u);
     }
   }
-  console.log(map);
-  let extras = 0;
-  for (let [key, value] of map) {
-    extras += value.length - 1;
+  let root = Array.from(map.entries()).sort(
+    (a, b) => b[1].length - a[1].length
+  )[0];
+  //console.log("Root:", root);
+  let extras = Math.max(0, root[1].length - 2);
+  let queue = [...root[1]];
+  let seen = new Set([root[0]]);
+  //console.log(extras, queue);
+  while (queue.length > 0) {
+    //console.log(queue);
+    let node = queue.shift();
+    seen.add(node);
+    let localExtra = 0;
+    let children = map.get(node);
+    for (let child of children) {
+      if (!seen.has(child)) {
+        queue.push(child);
+        localExtra++;
+      }
+    }
+    extras += Math.max(0, localExtra - 1);
   }
-  extras -= 2;
-  console.log(Math.ceil(extras / 2) / 2 + 1);
+  //console.log(queue);
+  console.log(Math.ceil(extras / 2) + 1);
 }
